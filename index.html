@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+    <title>PetShop</title>
+    <!-- <meta content="description" name="description"> -->
+    <!-- <meta content="keywords" name="keywords"> -->
+  
+    <!-- Favicons -->
+    <!-- <link href="img/favicon.png" rel="icon"> -->
+    <!-- <link href="img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+  
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Trocchi&family=Work+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+  
+    <!-- Vendor CSS Files -->
+  
+    <!-- Template Main CSS File -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+<svg style="display: none;">
+
+    <symbol id="truck" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+        <path
+            d="M624 368h-16V251.9c0-19-7.7-37.5-21.1-50.9L503 117.1C489.6 103.7 471 96 452.1 96H416V56c0-30.9-25.1-56-56-56H56C25.1 0 0 25.1 0 56v304c0 30.9 25.1 56 56 56h8c0 53 43 96 96 96s96-43 96-96h128c0 53 43 96 96 96s96-43 96-96h48c8.8 0 16-7.2 16-16v-16c0-8.8-7.2-16-16-16zm-464 96c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm208-96H242.7c-16.6-28.6-47.2-48-82.7-48s-66.1 19.4-82.7 48H56c-4.4 0-8-3.6-8-8V56c0-4.4 3.6-8 8-8h304c4.4 0 8 3.6 8 8v312zm48-224h36.1c6.3 0 12.5 2.6 17 7l73 73H416v-80zm64 320c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm80-100.9c-17.2-25.9-46.6-43.1-80-43.1-24.7 0-47 9.6-64 24.9V272h144v91.1z" />
+    </symbol>
+
+    <symbol id="map" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+        <path
+            d="M560.02 32c-1.96 0-3.98.37-5.96 1.16L384.01 96H384L212 35.28A64.252 64.252 0 0 0 191.76 32c-6.69 0-13.37 1.05-19.81 3.14L20.12 87.95A32.006 32.006 0 0 0 0 117.66v346.32C0 473.17 7.53 480 15.99 480c1.96 0 3.97-.37 5.96-1.16L192 416l172 60.71a63.98 63.98 0 0 0 40.05.15l151.83-52.81A31.996 31.996 0 0 0 576 394.34V48.02c0-9.19-7.53-16.02-15.98-16.02zM224 90.42l128 45.19v285.97l-128-45.19V90.42zM48 418.05V129.07l128-44.53v286.2l-.64.23L48 418.05zm480-35.13l-128 44.53V141.26l.64-.24L528 93.95v288.97z" />
+    </symbol>
+
+    <symbol id="dollar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 512">
+        <path
+            d="M211.9 242.1L95.6 208.9c-15.8-4.5-28.6-17.2-31.1-33.5C60.6 150 80.3 128 105 128h73.8c15.9 0 31.5 5 44.4 14.1 6.4 4.5 15 3.8 20.5-1.7l22.9-22.9c6.8-6.8 6.1-18.2-1.5-24.1C240.4 74.3 210.4 64 178.8 64H176V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48h-2.5C60.3 64 14.9 95.8 3.1 143.6c-13.9 56.2 20.2 111.2 73 126.3l116.3 33.2c15.8 4.5 28.6 17.2 31.1 33.5C227.4 362 207.7 384 183 384h-73.8c-15.9 0-31.5-5-44.4-14.1-6.4-4.5-15-3.8-20.5 1.7l-22.9 22.9c-6.8 6.8-6.1 18.2 1.5 24.1 24.6 19.1 54.6 29.4 86.3 29.4h2.8v48c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-48h2.5c49.2 0 94.6-31.8 106.4-79.6 13.9-56.2-20.2-111.2-73-126.3z" />
+    </symbol>
+
+    <symbol id="credit-card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+        <path
+            d="M527.9 32H48.1C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48.1 48h479.8c26.6 0 48.1-21.5 48.1-48V80c0-26.5-21.5-48-48.1-48zM54.1 80h467.8c3.3 0 6 2.7 6 6v42H48.1V86c0-3.3 2.7-6 6-6zm467.8 352H54.1c-3.3 0-6-2.7-6-6V256h479.8v170c0 3.3-2.7 6-6 6zM192 332v40c0 6.6-5.4 12-12 12h-72c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12zm192 0v40c0 6.6-5.4 12-12 12H236c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12z" />
+    </symbol>
+
+</svg>
+
+<header id="header" class="header">
+    <div class="container">
+        <div class="header-inner">
+            <div class="logo">
+                <h1><a href="index.html">PetShop</a></h1>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="#intro">Home</a></li>
+                    <li><a class="nav-link scrollto" href="#categories">Shop</a></li>
+                    <li><a class="nav-link scrollto" href="#bestsellers">Best sellers</a></li>
+                    <li><a class="nav-link scrollto" href="#testimonials">Testimonials</a></li>
+                    <li><a class="nav-link scrollto" href="#advantages">Advantages</a></li>
+                    <li class="dropdown"><a class="nav-link scrollto" href="#!">Drop Down</a>
+                        <ul>
+                            <li><a href="#">Drop Down 1</a></li>
+                            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                                <ul>
+                                <li><a href="#">Deep Drop Down 1</a></li>
+                                <li><a href="#">Deep Drop Down 2</a></li>
+                                <li><a href="#">Deep Drop Down 3</a></li>
+                                <li><a href="#">Deep Drop Down 4</a></li>
+                                <li><a href="#">Deep Drop Down 5</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Drop Down 2</a></li>
+                            <li><a href="#">Drop Down 3</a></li>
+                            <li><a href="#">Drop Down 4</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="nav-link scrollto" href="#contacts">Contacts</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<div class="subheader">
+    <div class="container">
+        <ul class="subheader__list">
+            <li class="subheader__item"><span>International</span> Shipping Services</li>
+            <li class="subheader__item">See our <span>store hours</span> and services</li>
+            <li class="subheader__item">We price match to give you the <span>best deals</span></li>
+        </ul>
+    </div>
+</div>
+
+<div id="intro" class="intro">
+    <div class="container">
+        <div class="intro__inner">
+            <h2 class="intro__suptitle">
+                FIND THE BEST ANIMAL SUPPLIES
+            </h2>
+            <div class="intro__title">
+                We know animals are a part of your family, let us help take care of them.
+            </div>
+            <a href="#!" class="btn">Learn more about us</a>
+        </div>
+    </div>
+</div>
+
+<main class="main">
+
+    <div class="special">
+        <div class="container">
+            <img class="special__img" src="img/food-transparent-5-400x223.webp" alt="dog food">
+            <div class="special__text">
+                Get $25 OFF your first purchase of our homemade pet food!
+                <a href="#!" class="special__link">Visit the shop</a>
+            </div>
+        </div>
+    </div>
+
+    <section id="categories" class="categories">
+        <div class="container">
+            
+            <div class="section__header">
+                <h2 class="section__title">Browse by category</h2>
+                <p class="section__subtitle">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi harum alias dolorem dolore architecto ad iusto accusamus id dolorum et!</p>
+            </div>
+
+            <div class="cards categories-cards">
+                <a href="#!" class="card-link">
+                    <figure class="card">
+                        <img class="card__img" src="img/categories/01.jpg" alt="animal bed">
+                        <figcaption class="card__text">
+                            <h3>Bed</h3>
+                        </figcaption>
+                    </figure>
+                </a>
+                <a href="#!" class="card-link">
+                    <figure class="card">
+                        <img class="card__img" src="img/categories/02.webp" alt="animal bed">
+                        <figcaption class="card__text">
+                            <h3>Toys</h3>
+                        </figcaption>
+                    </figure>
+                </a>
+                <a href="#!" class="card-link">
+                    <figure class="card">
+                        <img class="card__img" src="img/categories/03.webp" alt="animal bed">
+                        <figcaption class="card__text">
+                            <h3>Food</h3>
+                        </figcaption>
+                    </figure>
+                </a>
+                <a href="#!" class="card-link">
+                    <figure class="card">
+                        <img class="card__img" src="img/categories/04.webp" alt="animal bed">
+                        <figcaption class="card__text">
+                            <h3>Transport</h3>
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="dogfood">
+        <div class="container">
+            <div class="dogfood__cards">
+                <div class="dogfood__card">
+                    <div class="dogfood__card-header">
+                        <h3>Kibble</h3>
+                        <p>Dry dog food</p>
+                    </div>
+                    <img class="dogfood__card-img" src="img/dogfood/food-transparent-18-400x420.webp"
+                        alt="dog food">
+                    <button class="btn">Shop dry food</button>
+                </div>
+                <div class="dogfood__card">
+                    <div class="dogfood__card-header">
+                        <h3>Moist</h3>
+                        <p>Canned dog food</p>
+                    </div>
+                    <img class="dogfood__card-img" src="img/dogfood/food-transparent-17.png" alt="dog food">
+                    <button class="btn">Shop moist food</button>
+                </div>
+                <div class="dogfood__card">
+                    <div class="dogfood__card-header">
+                        <h3>Frozen</h3>
+                        <p>Freeze-dried dog food</p>
+                    </div>
+                    <img class="dogfood__card-img" src="img/dogfood/food-transparent-16.png" alt="dog food">
+                    <button class="btn">Shop frozen food</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="arrivals">
+        <div class="container">
+            <div class="arrivals__inner">
+                <div class="arrivals__suptitle">FIND THE BEST ANIMAL SUPPLIES</div>
+                <div class="arrivals__title">New arrivals weekly</div>
+                <a href="#!" class="btn">Learn more about us</a>
+            </div>
+        </div>
+    </div>
+
+    <section id="bestsellers" class="bestsellers">
+        <div class="container">
+            <div class="bestsellers__inner">
+                <div class="bestsellers__header">
+                    <p class="bestsellers__suptitle">All-time best sellers</p>
+                    <h2 class="bestsellers__title">Items everyone loves</h2>
+                </div>
+                <a href="#!" class="btn btn-green">View all products</a>
+            </div>
+
+            <div class="bestsellers-filters-inner">
+                <ul id="bestsellers-filters" class="bestsellers-filters">
+                    <li data-filter="*" class="filter-active">All</li>
+                    <li data-filter=".filter-transport">Transport</li>
+                    <li data-filter=".filter-leash">Leash</li>
+                </ul>
+            </div>
+
+            <div class="bestsellers-cards">
+
+                <figure class="bestsellers-item filter-transport">
+                    <div class="bestsellers-item__wrap">
+                        <img src="img/bestsellers/01.jpg" alt="Transport cage">
+                        <figcaption class="bestsellers-item__info">
+                            <a href="#!" class="bestsellers-item__link">Transport cage</a>
+                            <span class="bestsellers-item__price">$25.00</span>
+                        </figcaption>
+                    </div>
+                </figure>
+
+                <figure class="bestsellers-item filter-leash">
+                    <div class="bestsellers-item__wrap">
+                        <img src="img/bestsellers/02.jpg" alt="Colorful cat leash">
+                        <figcaption class="bestsellers-item__info">
+                            <a href="#!" class="bestsellers-item__link">Colorful cat leash</a>
+                            <span class="bestsellers-item__price">$12.00</span>
+                        </figcaption>
+                    </div>
+                </figure>
+
+                <figure class="bestsellers-item filter-transport">
+                    <div class="bestsellers-item__wrap">
+                        <img src="img/bestsellers/04.jpg" alt="Animal transport cage">
+                        <figcaption class="bestsellers-item__info">
+                            <a href="#!" class="bestsellers-item__link">Animal transport cage</a>
+                            <span class="bestsellers-item__price">$25.00</span>
+                        </figcaption>
+                    </div>
+                </figure>
+
+                <figure class="bestsellers-item filter-leash">
+                    <div class="bestsellers-item__wrap">
+                        <img src="img/bestsellers/03.webp" alt="Dog leash">
+                        <figcaption class="bestsellers-item__info">
+                            <a href="#!" class="bestsellers-item__link">Dog leash</a>
+                            <span class="bestsellers-item__price">$15.00</span>
+                        </figcaption>
+                    </div>
+                </figure>
+
+                <figure class="bestsellers-item filter-transport">
+                    <div class="bestsellers-item__wrap">
+                        <img src="img/bestsellers/01.jpg" alt="Transport cage">
+                        <figcaption class="bestsellers-item__info">
+                            <a href="#!" class="bestsellers-item__link">Transport cage</a>
+                            <span class="bestsellers-item__price">$25.00</span>
+                        </figcaption>
+                    </div>
+                </figure>
+
+                <figure class="bestsellers-item filter-leash">
+                    <div class="bestsellers-item__wrap">
+                        <img src="img/bestsellers/02.jpg" alt="Colorful cat leash">
+                        <figcaption class="bestsellers-item__info">
+                            <a href="#!" class="bestsellers-item__link">Colorful cat leash</a>
+                            <span class="bestsellers-item__price">$12.00</span>
+                        </figcaption>
+                    </div>
+                </figure>
+
+                <!-- <div class="bestsellers__card">
+                    <a class="bestsellers__link" href="#!">
+                        <img class="bestsellers__img" src="img/bestsellers/product-20.webp" alt="Transport cage">
+                        <div class="bestsellers__desc">
+                            <span class="bestsellers__product">Dog leash</span>
+                            <span class="bestsellers__price">$15.00</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="bestsellers__card">
+                    <a class="bestsellers__link" href="#!">
+                        <img class="bestsellers__img" src="img/bestsellers/product-16.jpg" alt="Transport cage">
+                        <div class="bestsellers__desc">
+                            <span class="bestsellers__product">Animal transport cage</span>
+                            <span class="bestsellers__price-old">$30.00</span>
+                            <span class="bestsellers__price">$20.00</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="bestsellers__card">
+                    <a class="bestsellers__link" href="#!">
+                        <img class="bestsellers__img" src="img/bestsellers/product-11.jpg" alt="Transport cage">
+                        <div class="bestsellers__desc">
+                            <span class="bestsellers__product">Colorful cat leash</span>
+                            <span class="bestsellers__price">$12.00</span>
+                        </div>
+                    </a>
+                </div> -->
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="testimonials__title">Users testimonials</h2>
+            <div class="testimonials__users">
+                <div class="testimonials__user">
+                    <img class="testimonials__user-img" src="img/testimonials/avatar-3.jpg" alt="Lisa Smith">
+                    <div class="testimonials__user-text">Auctor est habitasse amet nunc, interdum vel mattis sodales
+                        cras. Ut nulla quis nunc, tincidunt eu. Eu.</div>
+                    <div class="testimonials__user-name">Lisa Smith, ThemeFusion</div>
+                </div>
+                <div class="testimonials__user">
+                    <img class="testimonials__user-img" src="img/testimonials/avatar-1.jpg" alt="Lisa Smith">
+                    <div class="testimonials__user-text">Donec sollicitudin molestie malesuada. Vivamus suscipit
+                        tortor eget felis porttitor volutpat vestibulum ac diam sit.</div>
+                    <div class="testimonials__user-name">Melissa Green</div>
+                </div>
+                <div class="testimonials__user">
+                    <img class="testimonials__user-img" src="img/testimonials/avatar-4-600x600.jpg"
+                        alt="Lisa Smith">
+                    <div class="testimonials__user-text">Curabitur arcu erat, accumsan id imperdiet et, porttitor at
+                        sem. Proin eget tortor risus vestibulum ante ipsum.</div>
+                    <div class="testimonials__user-name">Sam Lewis</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="join">
+        <div class="container">
+            <div class="join__wrapper">
+                <h2 class="join__title">Join our newsletter</h2>
+                <p class="join__text">Volutpat vel turpis nulla lorem sed semper. Aliquam sagittis sem libero
+                    viverra vehicula nullam ut nisl.</p>
+                <form class="join__form" action="#">
+                    <label class="visually-hidden join__label" for="joinEmail"></label>
+                    <input class="join__input" type="email" id="joinEmail" name="email"
+                        oninvalid="this.setCustomValidity('Пожалуйста, напишите email латинскими буквами')"
+                        oninput="setCustomValidity('')" placeholder="Insert your email ...*" aria-required="true"
+                        required="true">
+                    <button class="btn btn-green btn-lg" type="submit">Subscribe</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <section class="articles">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Get the best tips & tricks</h2>
+                <p class="section__subtitle"> Recent articles</p>
+            </div>
+
+            <div class="articles__cards">
+
+                <div class="articles__card">
+                    <a href="#!" class="articles__card-link">
+                        <div class="articles__card-inner">
+                            <div class="articles__card-img">
+                                <img src="img/articles/blog-1.webp" alt="How to ‘loose leash walk’ your dog">
+                                <div class="articles__card-text">
+                                    <div class="articles__card-text-title">How to ‘loose leash walk’ your dog</div>
+                                    <div class="articles__card-text-category">Tips & Tricks</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="articles__card-desc">
+                            <div class="articles__card-title">How to ‘loose leash walk’ your dog</div>
+                            <div class="articles__card-date">April 21st, 2020</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="articles__card">
+                    <a href="#!" class="articles__card-link">
+                        <div class="articles__card-inner">
+                            <div class="articles__card-img">
+                                <img src="img/articles/blog-2.webp" alt="How to ‘loose leash walk’ your dog">
+                                <div class="articles__card-text">
+                                    <div class="articles__card-text-title">Stop cats from scratching furniture</div>
+                                    <div class="articles__card-text-category">Tips & Tricks</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="articles__card-desc">
+                            <div class="articles__card-title">Stop cats from scratching furniture</div>
+                            <div class="articles__card-date">April 21st, 2020</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="articles__card">
+                    <a href="#!" class="articles__card-link">
+                        <div class="articles__card-inner">
+                            <div class="articles__card-img">
+                                <img src="img/articles/blog-3.webp" alt="How to ‘loose leash walk’ your dog">
+                                <div class="articles__card-text">
+                                    <div class="articles__card-text-title">Where to buy the best pet food</div>
+                                    <div class="articles__card-text-category">Tips & Tricks</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="articles__card-desc">
+                            <div class="articles__card-title">Where to buy the best pet food</div>
+                            <div class="articles__card-date">April 21st, 2020</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="articles__card">
+                    <a href="#!" class="articles__card-link">
+                        <div class="articles__card-inner">
+                            <div class="articles__card-img">
+                                <img src="img/articles/blog-4.webp" alt="How to ‘loose leash walk’ your dog">
+                                <div class="articles__card-text">
+                                    <div class="articles__card-text-title">Proper care for your pet toys</div>
+                                    <div class="articles__card-text-category">Tips & Tricks</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="articles__card-desc">
+                            <div class="articles__card-title">Proper care for your pet toys</div>
+                            <div class="articles__card-date">April 21st, 2020</div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="articles-btn">
+                <button class="btn btn-green">Read all articles</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="advantages" class="advantages">
+
+        <div class="advantages__inner">
+            <figure class="advantages__item">
+                <img src="img/banner-8@2x.webp" alt="FIND THE BEST ANIMAL SUPPLIES">
+                <div class="advantages__content">
+                    <div class="advantages__suptitle">FIND THE BEST ANIMAL SUPPLIES</div>
+                    <figcaption class="advantages__title">Popular accessories</figcaption>
+                    <a href="#!" class="btn">View all toys accessories</a>
+                </div>
+            </figure>
+            <figure class="advantages__item">
+                <img src="img/banner-9@2x.webp" alt="FIND THE BEST ANIMAL SUPPLIES">
+                <div class="advantages__content">
+                    <div class="advantages__suptitle">FIND THE BEST FOOD</div>
+                    <figcaption class="advantages__title">New food arrival</figcaption>
+                    <a href="#!" class="btn">View all food products</a>
+                </div>
+            </figure>
+        </div>
+
+        <div class="advantages__wrapper">
+            <div class="container">
+                <div class="advantages__el">
+                    <svg class="icon">
+                        <use href="#truck"></use>
+                    </svg>
+                    <div class="advantages__desc">Free worldwide deliveries</div>
+                </div>
+                <div class="advantages__el">
+                    <svg class="icon">
+                        <use href="#map"></use>
+                    </svg>
+                    <div class="advantages__desc">Find stores near you</div>
+                </div>
+                <div class="advantages__el">
+                    <svg class="icon">
+                        <use href="#dollar"></use>
+                    </svg>
+                    <div class="advantages__desc">Best prices guarranteed</div>
+                </div>
+                <div class="advantages__el">
+                    <svg class="icon">
+                        <use href="#credit-card"></use>
+                    </svg>
+                    <div class="advantages__desc">All credit card accepted</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+<footer id="contacts" class="footer">
+    <div class="container">
+        <div class="footer__wrapper">
+            <div class="footer__col">
+                <a class="footer__col-logo-link" href="#!">
+                    <img class="logo" src="img/logo2.webp" alt="">
+                </a>
+                <address class="footer__col-address">
+                    1234 Avada Avenue Avadaville
+                    <br>
+                    <a href="mailto:webmaster@example.com">info@your-company.com</a>
+                    <br>
+                    <a href="tel:+12345678">Call us: (1) 234 5678</a>
+                </address>
+            </div>
+            <div class="footer__col">
+                <div class="footer__col-title">Shop by brand</div>
+                <ul class="footer__col-list">
+                    <li class="footer__col-item">
+                        <a href="#!">Bed</a>
+                    </li>
+                    <li class="footer__col-item">
+                        <a href="#!">Food</a>
+                    </li>
+                    <li class="footer__col-item">
+                        <a href="#!">Toys</a>
+                    </li>
+                    <li class="footer__col-item">
+                        <a href="#!">Transport</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <div class="footer__col-title">Useful links</div>
+                <ul class="footer__col-list">
+                    <li class="footer__col-item">
+                        <a href="#!">My account</a>
+                    </li>
+                    <li class="footer__col-item">
+                        <a href="#!">Orders</a>
+                    </li>
+                    <li class="footer__col-item">
+                        <a href="#!">Checkout</a>
+                    </li>
+                    <li class="footer__col-item">
+                        <a href="#!">Cart</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <div class="subscribe__wrapper">
+                    <div class="footer__col-title">Subscribe to our newsletter</div>
+                    <form action="#" class="subscribe__form">
+                        <label class="visually-hidden subscribe__label" for="subscribe-email"></label>
+                        <input class="subscribe__input" type="email" id="subscribe-email" name="email"
+                            oninvalid="this.setCustomValidity('Пожалуйста, напишите email латинскими буквами')"
+                            oninput="setCustomValidity('')" placeholder="Insert your email ...*"
+                            aria-required="true" required="true">
+                        <button class="btn btn-lg btn-green" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <nav class="footer-nav">
+            <ul class="footer-nav__list">
+                <li><a href="#!">Home</a></li>
+                <li><a href="#!">About</a></li>
+                <li><a href="#!">Blog</a></li>
+                <li><a href="#!">Contact</a></li>
+                <li><a href="#!">Shop</a></li>
+            </ul>
+        </nav>
+        <ul class="footer-social">
+            <li class="footer-social__item">
+                <a href="#!" aria-label="twitter">
+                    <svg viewBox="0 0 37 30" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M36.9231 3.55154C35.55 4.15385 34.0869 4.55308 32.5615 4.74692C34.1308 3.81 35.3285 2.33769 35.8915 0.563077C34.4285 1.43538 32.8131 2.05154 31.0915 2.39538C29.7023 0.916154 27.7223 0 25.5623 0C21.3715 0 17.9977 3.40154 17.9977 7.57154C17.9977 8.17154 18.0485 8.74846 18.1731 9.29769C11.88 8.99077 6.31154 5.97462 2.57077 1.38C1.91769 2.51308 1.53462 3.81 1.53462 5.20615C1.53462 7.82769 2.88462 10.1515 4.89692 11.4969C3.68077 11.4738 2.48769 11.1208 1.47692 10.5646C1.47692 10.5877 1.47692 10.6177 1.47692 10.6477C1.47692 14.3262 4.10077 17.3815 7.54154 18.0854C6.92538 18.2538 6.25385 18.3346 5.55692 18.3346C5.07231 18.3346 4.58308 18.3069 4.12385 18.2054C5.10462 21.2031 7.88769 23.4069 11.1969 23.4785C8.62154 25.4931 5.35154 26.7069 1.81154 26.7069C1.19077 26.7069 0.595385 26.6792 0 26.6031C3.35308 28.7654 7.32692 30 11.6123 30C25.5415 30 33.1569 18.4615 33.1569 8.46C33.1569 8.12538 33.1454 7.80231 33.1292 7.48154C34.6315 6.41538 35.8938 5.08385 36.9231 3.55154Z"></path>
+                    </svg>
+                </a>
+            </li>
+            <li class="footer-social__item">
+                <a href="#!" class="socials__link" aria-label="facebook">
+                    <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M25.6055 0H4.39453C1.97159 0 0 1.97159 0 4.39453V25.6055C0 28.0284 1.97159 30 4.39453 30H13.2422V19.3945H9.72656V14.1211H13.2422V10.5469C13.2422 7.63893 15.6077 5.27344 18.5156 5.27344H23.8477V10.5469H18.5156V14.1211H23.8477L22.9688 19.3945H18.5156V30H25.6055C28.0284 30 30 28.0284 30 25.6055V4.39453C30 1.97159 28.0284 0 25.6055 0Z"></path>
+                    </svg>
+                </a>
+            </li>
+            <li class="footer-social__item">
+                <a href="#!" class="socials__link" aria-label="linkedin">
+                    <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M25.6055 0H4.39453C1.97159 0 0 1.97159 0 4.39453V25.6055C0 28.0284 1.97159 30 4.39453 30H25.6055C28.0284 30 30 28.0284 30 25.6055V4.39453C30 1.97159 28.0284 0 25.6055 0ZM10.6055 23.7891H7.08984V11.4844H10.6055V23.7891ZM10.6055 9.72656H7.08984V6.21094H10.6055V9.72656ZM22.9102 23.7891H19.3945V16.7578C19.3945 15.7887 18.6058 15 17.6367 15C16.6676 15 15.8789 15.7887 15.8789 16.7578V23.7891H12.3633V11.4844H15.8789V12.147C16.7999 11.8607 17.3982 11.4844 18.5156 11.4844C20.8999 11.4869 22.9102 13.6258 22.9102 16.1536V23.7891Z"></path>
+                    </svg>
+                </a>
+            </li>
+            <li class="footer-social__item">
+                <a href="#!" class="socials__link" aria-label="instagram">
+                    <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.7209 0H8.27874C3.71384 0 0 3.71402 0 8.27892V21.7211C0 26.2862 3.71384 30 8.27874 30H21.7209C26.2862 30 30 26.286 30 21.7211V8.27892C30.0002 3.71402 26.2862 0 21.7209 0ZM27.3384 21.7211C27.3384 24.8185 24.8185 27.3383 21.7211 27.3383H8.27874C5.18153 27.3384 2.66175 24.8185 2.66175 21.7211V8.27892C2.66175 5.18171 5.18153 2.66175 8.27874 2.66175H21.7209C24.8183 2.66175 27.3383 5.18171 27.3383 8.27892V21.7211H27.3384Z"></path>
+                        <path d="M15 7.27014C10.7375 7.27014 7.26978 10.7379 7.26978 15.0004C7.26978 19.2627 10.7375 22.7303 15 22.7303C19.2625 22.7303 22.7303 19.2627 22.7303 15.0004C22.7303 10.7379 19.2625 7.27014 15 7.27014ZM15 20.0683C12.2054 20.0683 9.93152 17.7949 9.93152 15.0002C9.93152 12.2054 12.2052 9.93171 15 9.93171C17.7948 9.93171 20.0685 12.2054 20.0685 15.0002C20.0685 17.7949 17.7947 20.0683 15 20.0683Z"></path>
+                        <path d="M23.0545 5.01318C22.5417 5.01318 22.0379 5.2208 21.6757 5.58457C21.3118 5.94657 21.1025 6.45053 21.1025 6.96513C21.1025 7.47814 21.3119 7.98192 21.6757 8.34569C22.0377 8.70769 22.5417 8.91708 23.0545 8.91708C23.5691 8.91708 24.0713 8.70769 24.435 8.34569C24.7988 7.98192 25.0064 7.47796 25.0064 6.96513C25.0064 6.45053 24.7988 5.94657 24.435 5.58457C24.073 5.2208 23.5691 5.01318 23.0545 5.01318Z"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+
+</html>

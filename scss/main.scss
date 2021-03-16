@@ -1,0 +1,26 @@
+@import 'vendor/normalize/import-now';
+
+@import 'vars';
+@import 'mixins';
+
+@import 'ui';
+
+@import 'blocks/fonts';
+
+@import 'blocks/btn';
+@import 'blocks/icon';
+
+@import 'blocks/header';
+@import 'blocks/subheader';
+@import 'blocks/intro';
+@import 'blocks/special';
+@import 'blocks/section';
+@import 'blocks/categories';
+@import 'blocks/dogfood';
+@import 'blocks/arrivals';
+@import 'blocks/bestsellers';
+@import 'blocks/testimonials';
+@import 'blocks/join';
+@import 'blocks/articles';
+@import 'blocks/advantages';
+@import 'blocks/footer';

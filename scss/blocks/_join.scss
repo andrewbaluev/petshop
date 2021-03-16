@@ -1,0 +1,46 @@
+.join {
+
+    &__wrapper {
+        position: relative;
+        top: -70px;
+        padding: 100px 600px 50px 100px;
+        background: url('../img/banner-7@2x-scaled.webp') center center / cover no-repeat;
+    }
+
+    &__title {
+        font-family: 'Trocchi', sans-serif;
+        font-size: 40px;
+        font-weight: 400;
+    }
+
+    &__text {
+        margin-bottom: 45px;
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.8;
+    }
+
+    &__form {
+        display: flex;
+    }
+
+    &__input {
+        flex-grow: 1;
+        margin-right: 30px;
+        padding: 0 15px;
+        height: 55px;
+        border-radius: 27px;
+        background-color: #f8f5f2;
+        border: none;
+
+        color: #000;
+        font-size: 16px;
+        font-weight: 400;
+
+        outline: none;
+
+        &:focus {
+            box-shadow: 0, 0;
+        }
+    }
+}

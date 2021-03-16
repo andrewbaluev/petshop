@@ -1,0 +1,25 @@
+.section {
+    &__header {
+        width: 680px;
+        margin: 0 auto 70px;
+    }
+
+    &__title {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-family: "Trocchi", sans-serif;
+        color: $main-color;
+        font-size: 34px;
+        line-height: 2;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    &__subtitle {
+        margin: 0;
+        font-size: 17px;
+        line-height: 1.4;
+        font-weight: 400;
+        text-align: center;
+    }
+}

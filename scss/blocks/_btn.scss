@@ -1,0 +1,32 @@
+.btn {
+    padding: 13px 30px;
+    margin: 0;
+    width: fit-content;
+    border: none;
+    border-radius: 30px;
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: $main-color-light;
+    cursor: pointer;
+    transition: color .2s ease, background-color .2s ease;
+    &:hover {
+        color: #fff;
+        background-color: $main-color-light;
+    }
+
+    &-lg {
+        padding: 17px 45px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    &-green {
+        background-color: $main-color-light;
+        color: #fff;
+        &:hover {
+            background-color: darken($main-color-light, 10%)
+        }
+    }
+}

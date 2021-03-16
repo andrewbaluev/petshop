@@ -1,0 +1,29 @@
+.arrivals {
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 160px 60px;
+        background-image: url("../img/banner-3@2x-scaled.webp");
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    &__suptitle {
+        margin-bottom: 15px;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    &__title {
+        margin-bottom: 35px;
+        font-family: "Trocchi", sans-serif;
+        color: #fff;
+        font-size: 50px;
+        font-weight: 400;
+        text-align: center;
+    }
+}

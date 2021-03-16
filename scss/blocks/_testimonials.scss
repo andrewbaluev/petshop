@@ -1,0 +1,51 @@
+.testimonials {
+    padding: 100px 0 140px 0;
+    background-color: #1e3120;
+    background-position: center top;
+    background-repeat: repeat-x;
+    background-image: url(../img/bg-transparent-3.webp);
+
+    &__title {
+        margin-bottom: 70px;
+        font-family: 'Trocchi', sans-serif;
+        font-size: 42px;
+        font-weight: 400;
+        text-align: center;
+        color: #fff;
+    }
+
+    &__users {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 110px;
+    }
+
+    &__user {
+
+        &-img {
+            margin: 0 auto 20px;
+            width: 100px;
+            height: 100px;
+            display: block;
+            border-radius: 50%;
+        }
+
+        &-text {
+            margin-bottom: 20px;
+            color: #fff;
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        &-name {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 1.7;
+            text-align: center;
+        }
+    }
+}
+        

@@ -1,0 +1,33 @@
+.intro {
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 60px);
+    background-color: rgb(30, 49, 32);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 60%), url("../img/banner-5@2x-scaled.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &__inner {
+        width: 50%;
+        margin-right: auto;
+    }
+
+    &__suptitle {
+        margin: 10px 0;
+        font-weight: 600;
+        line-height: 1.6;
+        letter-spacing: 2px;
+        color: #fff;
+    }
+
+    &__title {
+        margin-top: 10px;
+        margin-bottom: 50px;
+        font-family: "Trocchi";
+        line-height: 1.35;
+        font-size: 50px;
+        color: #fff;
+    }
+}
+
